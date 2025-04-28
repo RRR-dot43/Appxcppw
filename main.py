@@ -36,6 +36,14 @@ from concurrent.futures import ThreadPoolExecutor
 THREADPOOL = ThreadPoolExecutor(max_workers=1000)
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Bot credentials from environment variables (Render compatible)
+API_ID = int(os.environ.get("API_ID", 21216779))
+API_HASH = os.environ.get("API_HASH", "fdad88238287459c6dc790658f1008c1")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8158717275:AAFSOiFSfIeIsd0Fb_8kzVCuCV58Kw2as9Y")
+
+# Initialize Bot Globally (IMPORTANT FIX)
+bot = Client("bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 # Flask App For Render
 app = Flask(__name__)
 
